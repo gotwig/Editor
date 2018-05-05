@@ -26,6 +26,7 @@ const build = function (baseUrl, inFile, outFile, options) {
             'babylonjs-editor-extensions': './.build/src/extensions/index.js',
             'animation-editor': './.build/src/tools/animations/editor.js',
             'material-viewer': './.build/src/tools/materials/viewer.js',
+            'behavior-visualeditor': './.build/src/tools/behavior/visualcode.js',
             'behavior-editor': './.build/src/tools/behavior/code.js',
             'texture-viewer': './.build/src/tools/textures/viewer.js',
             'material-creator': './.build/src/tools/material-creator/index.js',
@@ -87,6 +88,13 @@ externals = externals.concat(['babylonjs-editor', 'raphael']);
 
 build('./.build/src/', './.build/src/tools/animations/editor.js', './dist/animations-editor.js', {
     globalName: 'AnimationEditor',
+    format: 'cjs',
+    externals: externals,
+    minify: true
+});
+
+build('./.build/src/', './.build/src/tools/behavior/code.js', './dist/behavior-visualeditor.js', {
+    globalName: 'BehaviorEditor',
     format: 'cjs',
     externals: externals,
     minify: true
